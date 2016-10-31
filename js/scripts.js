@@ -13,15 +13,18 @@ $(document).ready(function() {
     var listTitle = $("input#title").val();
     var dateBy = $("input#date").val();
     // var items = $("input#items").val();
-    var addItems = $('#add').click(function() {
+    $('#add').click(function() {
         var item = $('#item')
         $('ul').prepend("<li>"+item.val()+"</li>");
     });
 
+    var addItems = [];
+    $("ul li").each(function() {
+      addItems.push($(this).text()) });
+
 
     var newList = new List(listTitle, dateBy, addItems);
     console.log(newList);
-
     // $("list-results").append("<h4><span class='title'>" + newList.titleName + "</span></h4>");
 
     $('ul').on('click', 'li', function() {
